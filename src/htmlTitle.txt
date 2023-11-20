@@ -1,0 +1,499 @@
+What I did today
+StateT Monad in Haskell
+Sed filter empty line
+Stream and Pipe
+Tetrahedron
+Change volumn from command line on macOS
+Quick Sorts in mutable vector and list in Haskell and vector in Cpp
+Cpp Bug in AronLib
+PDF Functional Pearl Applicative Programming with Effects
+PDF Haskell Fold The Universality and expressiveness of fold 
+Understand Elisp Function Definition
+Haskell Arrow
+Run Multiple Lines Commands
+Regular Expression Regex
+CPP Why std sucks like std set
+Haskell-Bookmark-Manager
+My Quesiton - Fill Array problem
+ASCII Name ISO8859
+Multiply all integer except the current one
+Tries Cpp Insert and Contains
+Xcode Code Signature ERROR
+Java Single Linked List
+Binary Min Max Longest Path from Root Node
+Graph problems
+Binary Tree print all paths
+Find the Maximum Sum Path in a Binary Tree
+Nix Shell in MacOS
+Triangulation in 2D 
+Understand SVG viewBox
+C Implementation Random Number
+Intersection between one segment and many segments in 2d plan
+Inscribed Quadrilateral Circle
+Haskell Record and Type Constructor
+Haskell Formatting
+Haskell Function as Functor
+Haskell forall
+Haskell Netwire
+Haskell double conversion package missing dependency on foreign library
+Haskell Examples
+Haskell Wai Server
+Haskell Stack Tool
+Haskell Typeclass
+Haskell Functor Monoid and Monad
+Haskell Implement an Dictionary in 4 lines
+Haskell Regex Examples
+Haskell OpenGL Hello World
+Haskell OpenGL Primitive Mode
+Haskell Maybe
+Haskell Prove List satifies two laws
+Haskell Prove Maybe satifies two laws
+Haskell Read and Write Variable with newIORef
+Haskell Date.Set Set Example
+Haskell run GHCi in command line with here-string
+Haskell Implement Iterator with Monad IO
+Haskell Get Maximum value in Constant time from Stack
+Haskell String Text and ByteString
+Haskell Install Remove GHCi On Mac OSX
+Haskell Tutorial
+Haskell Guard Syntax
+Haskell Quick Sort
+Haskell Call C function FFI
+Haskell concatMap confusing
+Haskell Collection of Monoid
+Haskell Doc
+
+Qatar World Cup 2022
+Curl Example
+C Shuffle Algorithm
+Python Shuffle Algorithm
+Java Shuffle Algorithm
+Java Reverse a String
+Java Json to Object and Object to Json
+Java Jsoup Example
+User without sudo permission
+Calculate the falling object using Newton Law
+Latex Equation inside Theorem
+Set Matrix Problem Interview Question
+Word Break problem
+Design Add and Search Words Data Structure Leet Code Problem
+Pacific Atlantic Water Flow
+Longest Repeating Character Replacement
+Reverse Bits of Unsigned Integer
+Word Search in a Grid
+What is Chino
+APL and Haskell Combinator
+APL Code
+APL Symbol Unicode
+Outer product for Integer multiplication
+Latex Special Character
+All My Projects
+Terminal Color and Escape Code Sequence
+Explore The Alphabet
+Latex LuaTex ConText PSStricks and more
+C Cpp programming
+Python
+Shell Script Examples
+Insert a node into a binary tree
+Hermitian matrix and real eigenvalues
+Math Definition
+Math Katex
+Mysql
+Install HDBC.Sqlite3 in Haskell
+Why Haskell so bad in Number
+What is Monad in Haskell
+Isomorophism in Haskell
+Understand foldr and foldl in Haskell
+GHC compile options in Haskell
+Type Constructor and Data Constructor in Haskell
+Multiple lines in GHCi in Haskell
+
+Compare Haskell, Swift and C speed in Pythagorean Triples
+Agda and Haskell
+
+Local PDF
+sqlite3
+SQL
+
+Proof infinite number of primes
+C Language
+J Language
+Partition Array
+Java Record Example
+Java Compile classpath sourcepath jar file
+Java Spring and Hibernate Database Driver and ORM
+Java Remove duplicate character from a string
+Java Find rectangle in two dimension array
+Java Different ways to concat string
+Java LinkedHashMap Example
+Java Comparable and Comparator
+Java IO Java file reader Java file writer
+Editor
+Find the intersection of two sorted lists
+Understand OpenGL
+Intersection of two segments
+Householder Matrix
+Check Whether a point is inside a Triangle
+Convex Hull Algorithm
+OpenCV Image Blending
+OpenCV Change Image Contrast and Brightnes
+OpenCV Convert Image to Grayscale Image
+OpenCV Read Image and Show them
+OpenCV Linear Interpolation
+OpenCV from Scratch
+Tmux Commands
+Find the square root of an Integer
+Stop and Restar Apache in MacOS
+Vim Channel Vim Remote Vim TCP client 
+Vim Json
+Vim newline for substitute
+Vim Remove Tailing Whitespace
+Vim Select the whole line
+Vim Copy string to Clipboard in MacOS
+Vim Replace Cursor Character with rX in Insert Mode
+Vim Global and Chain Ex Command
+Vim Copy Column and Paste
+Vim How to insert new line in Ex mode
+Vim Set environment in Ex mode
+Vim Add file path to register in Ex mode
+Vim Scroll the current line to the middle of the screen
+Vim Select word under cursor
+Vim Redirect Ex command output to file
+Vim Non-Greedy Regex
+Vim substitute example
+Vim Delete empty line
+Vim Tricks
+Emacs Evil Mode for Vim Users
+How to Define new command in latex in separate file
+How to Declare Clousre Syntax in Swift
+How to Use Loop Syntax in Swift
+Swift Dispatch Wait and Notify
+Swift Code
+Command Line Tricks
+Shell Script
+PDF files
+Latex Matrix
+Latex Example
+Xcode Shortcut Key
+Xcode Build Tools
+MyBookMark
+Random Note
+English Note
+English Note New
+Daily Note
+The beauty of Torus
+Bezier Curve 
+Cubic Curve 
+
+From Matrix to Lie Group 
+Change Matrix Basis 
+Similar Matrix 
+Find the eigenvalue and eigenvector of 2 by 2 matrix 
+Find the eigenvalue of skew-symmetic matrix 
+Computer Graphic Matrix
+Compute the Determiant of 2x2 Matrix 
+How to solve the system equation 
+
+Euler Formula 
+Computing determinant with cofactor expansion 
+Differentiated 
+Algebraic Curve 
+Projective Geometry
+Proof On Some Sequences
+Square Root of Two is irrational 
+Square Root of Three is irrational 
+Visualize Binomial Theorem
+Binomial Identity
+Proof Fermat Little Theorem 
+Functional Picture
+How to plot a linear equation 
+
+World Cup 2022
+World Cup 2018
+
+My Photos
+
+one proof a day 5
+one proof a day 4
+one proof a day 3
+one proof a day 2
+one proof a day 1
+
+Html is not refreshing in Github
+
+Markov Chain Algorithm Generate Text
+Multiple Thread LinkedList Queue HashMap
+
+ffmpeg example
+Tableau Interview Questions
+Print Previous element from Binary Tree
+Tower Hanoi
+Polish Notation and Preporder Traveral
+
+OpenGL draw point
+OpenGL draw line
+OpenGL draw triangle
+OpenGL draw polygon
+OpenGL Vertex Array
+OpenGL Vertex Array Triangle
+Draw Triangle OpenGL IOS
+Message Queue
+Observer Pattern
+Publish Subscribe Pattern
+
+Povray draw box
+Maximum difference on an array
+Maximum Continuous Sum List
+Maximum non consecutive sum
+Auto Complete with Map and List
+The power of image
+Eight Queen Solver
+Build Tree from pre and post
+Build Tree from preorder and inorder
+Serialize Binary Tree with Binary Heap
+Serialize Binary Tree Ternary Tree
+Tokenize Simple XML
+Print All Binary
+Find the Lowest Common Ancestor in a Binary Tree
+Find a pair of elements from an array whose sum equals a given number
+Array to Balanced BST
+Implement HashMap with array
+Find the First Non-Repeating Char from Stream Char
+Excel Column Header
+Minimum Distance Between two given words
+Set up Mutt for Gmail Account
+Clone Skip List One pass or NO Extra Space
+Insert node to sorted list
+Graph Implementation
+Merge Sorted Array with Extra Space
+Google Pill Interview Question
+Nim Game
+Compress String
+Design URL shortener
+Design Vendor Machina
+Design Coin Change Machina
+Design Parking Lot
+Graph Loop and Path
+Range Query
+Find the maximum children of given tree
+
+Level order without queue
+Merge Sorted Single LinkedList
+Facebook Interview Question
+Carmichael Number
+Merge Intervals
+The power of next next
+Traversal Iteration
+Binary Iterator
+Debug With LLDB
+Count Occurrence pattern String
+Check Prime Number Algorithm
+Expedia Tech Interview
+Directed Graph
+Binary Tree Definition
+Fix Swap Two nodes in Binary Search Tree
+Swap Two nodes in Binary Search Tree
+Java read file write to file read line
+Java Implement Stack with Array
+Java Least Common Ancestor
+Java Rotate 2d Array 90 degrees
+Java Longest component
+Java Priority Heap
+Java Thread
+Java Double LinkedList
+Java Typing Type Covariant Contravariant Subtype
+Singleton in Java
+Java Lambda Expression
+Json Parser in Java
+Least Recent Used LRU in Java
+Throw Throws Throwable in Java
+Get All methods in Java
+Java Matrix Multiply
+Microsoft Tech Interview Questions
+
+C++ tutorial
+C++ Return By Reference
+C++ Function Template and Class Template
+C++ Eigen Library for Matrix Operation
+C++ Copy Constructor
+C++ Clone Double Linked List
+C++ Clone Single Linked List
+C++ Single Linked List
+C++ All children at K dist from a Node
+C++ Print nodes at K distance from Root
+C++ Invert Binary Tree
+C++ Queue with Two Stacks
+C++ product of all integers except current one
+C++ Print Sprial from Rectangle
+C++ Rotate 2d array 90 degree
+C++ Draw Circle Using Symmetric property
+C++ Reverse Byte
+C++ Least Operation Add one Multiply two
+C++ Power of Two
+C++ Print All Binary With Binary Tree
+C++ Print All Binary
+C++ Decimal To Binary
+C++ Binary Tree Insert
+C++ Tries
+C++ Merge three sorted arrays
+C++ Merge two sorted arrays
+C++ overload Operator
+C++ find path in maze
+C++ Binary Search
+C++ Quick Sort
+C++ two stacks get minimum
+C++ Smart Pointers
+C++ Double Linked List With Smart Pointer
+C++ Virtual Class
+C++ Dangling Pointer
+C++ Regular Expression
+C++ Data Structure
+C++ And C Build Compile Option
+Generate n prime in C++
+Allocate 2D array in C and C++
+Unsigned int Cotcha in C and C++
+C struct and union
+Maximum internval overlap
+
+Magic Square Solver
+Sudoku Solver
+How to create animation gif
+Property of determinant 
+Image Processing 
+
+
+UIAlert in iOS
+TableViewController in iOS
+Switch different RootController
+
+IOS Center Two Button
+IOS Subdivision Curve
+IOS Capture Screenshot
+IOS Load Image
+IOS UIBezierPath closePath
+IOS Animation
+IOS Simple Animation
+IOS Bezier Curve
+IOS Stop Watch
+IOS Rotate Different CAShapeLayers
+IOS Anchor Point Bounds Frame
+IOS Rotate CAShapeLayer
+IOS Transform Rotation 3
+IOS Transform Rotation 2
+IOS Transform Rotation 1
+IOS CAShapeLayer Gradient
+IOS Draw Hexagon
+IOS Click Inside Circle or Rectangle
+IOS Remove CAShapeLayer
+IOS CAShaperLayer StrokeColor
+IOS Slide Up Controller
+IOS List Buttons
+IOS Different Fonts
+IOS Play Sound
+IOS Demo
+IOS Simple App Demo
+
+Java Doc
+Cpp Doc
+Rename Project in Xcode 6.1
+Touches Event in iOS
+Draw Circle Rectangle Oval in iOS 
+Xcode C++ Standard Library
+Xcode Add Header Search Path for CPP
+Xcode Remove Add Unit Test
+Xcode Launch Screen File
+Xcode Change Build from iPhone iPad
+Xcode SnapShot Directory
+Xcode Remove Cache
+Xcode No such file or directory
+Xcode Screenshots
+Xcode Add Resource as Group
+Xcode Add Resource Bundle
+Xcode Run Your Test Cases Without Running Your App
+
+ObjectiveC pass double pointers
+ObjectiveC String Format Specifiers
+ObjectiveC Block
+ObjectiveC Static Method
+ObjectiveC Double and Triple Pointer
+
+Tries Data Structure
+Java Tries With Array
+Cycle Array
+Stack and Queue in Binary Tree
+Binary Search One Dimensions
+Binary Search Two Dimensions
+Longest Increasing Subsequence Recursion
+Coin Change Algorithm 
+Coin Change Dynamic Programming 
+Count Number of Way for Coin Change 
+
+Binary Tree Generate Graphviz file
+Binary Maximum Sum Path
+Binary Tree Mirror
+Binary Tree Isomorphic
+Binary Tree Symmetric
+Binary Tree Maximum Height
+
+Java Command Snippet
+Java Regular Expression
+Java Algorithm
+Java Data Structure
+Java Help Compile Package ClassPath
+
+Check Square Number in Java
+
+
+Reverse a LinkedList in Java
+
+Scala Tutorial 
+Blender Help
+
+Mac OSX Change Terminal Cursor Color
+Mac OSX Turn Off Voice or Speech Notification
+Mac OSX Full Screen Tab-Command Not working
+Install Terminal Color Theme in Mac OSX
+Gradle add package name file
+Gradle Add resources folder to Project Layout
+Gradle Add Local Jar
+Intellij Add Groovy Library
+Intellij Create Executable Jar file
+Intellij Add Resources or Test Directory
+Intellij Remove Base Package
+Intellij Import your package
+Intellij Add Java File
+Intellij Path Hell
+Intellij Change Class Output Path
+Intellij SetUp
+Intellij Add External Library
+Intellij Add Maven to proejct
+Intellij Add dependency to Maven
+Intellij Add Framework Support
+Intellij Add Scala SDK
+
+Prime Number
+Merge Two Sorted Array in Java
+Print All Permutation of an Array
+Quick Sort in C and C++
+Print all combination of r in a given array of size n
+Shuffle algorithm in C++
+Rotated Sorted Array 
+Multiply Array in Dynamic Programming
+Java Long Multiplication Integer Array
+Multiply Long Integer
+Add Long Integer
+C++ Multiply Long Integer
+Print Spiral in 2D array
+Apache Solr tutorial
+
+Install Maven in Mac OSX 
+Setup The Play Framework
+TestIt
+TestIt1
+TestIt2
+Test3
+Test4
+Test5
+Test6
+Test7
+Test111
