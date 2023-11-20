@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 #================================================================================ 
 # Last Upate: Fri Oct  7 12:39:43 PDT 2016 
@@ -53,19 +53,23 @@ ghcProfile="/usr/local/bin/ghc -i$HOME/myfile/bitbucket/haskelllib -prof -fprof-
 # stack build GeneXfidoHtml 
 # stack exec GeneXfidoHtml 
 
+exeName="GeneXfidoHtml"
+
 if [[ "$#" -eq 1 ]]; then
     
     # KEY: build only
     if [[ "$1" == 'c' ]]; then 
-	    stack build GeneXfidoHtml 
+	    stack build "$exeName" 
         printcText 'Build only'
     elif [[ "$1" == 'local' ]]; then
         # stack build GeneXfidoHtml && sudo stack --allow-different-user exec GeneXfidoHtml -- l
-        stack build GeneXfidoHtml && stack exec GeneXfidoHtml -- l 
+        stack build "$exeName" && stack exec "$exeName" -- l 
         echo "Gene Html for localhost"
     elif [[ "$1" == 'remote' ]]; then
-        stack build GeneXfidoHtml && sudo stack --allow-different-user exec GeneXfidoHtml -- remote 
+        stack build "$exeName" && sudo stack --allow-different-user exec "$exeName" -- remote 
         echo "Gene Html for xfido.com"
+    else 
+        printError "Invalid argument option [$1]"
     fi
 else
     # Wed 12 May 20:12:21 2021 

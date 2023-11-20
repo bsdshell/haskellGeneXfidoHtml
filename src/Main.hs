@@ -210,20 +210,20 @@ remoteHost = "http://xfido.com/html/"
 
 -- Friday, 08 October 2021 13:20 PDT
 -- Add the following functions
-indexHtmlFile::IO String
-indexHtmlFile = do
+getIndexPath::IO String
+getIndexPath = do
   home <- getEnv "HOME"
   return $ home </> "myfile/bitbucket/publicfile/text/index.html"
+
   
 pageFile::IO String
 pageFile = do
   home <- getEnv "HOME"
   return $ home </> "myfile/bitbucket/publicfile/text/page.html"
 
--- localTuple = ("html/", "../html/")
-localTuple = ("html/", "html/") 
-remoteTuple= (remoteHost, remoteHost)
-
+localPath = "html/"
+remotePath = "http://xfido.com/html/"
+  
 data WWWDirHtml = WWWDirHtml {htmlDir_ :: String,
                               newDir_ :: String,
                               tmpHtml_ :: String,
@@ -290,6 +290,7 @@ data RowBlock = RowBlock{
     imgURL  :: String
     } deriving (Show)
 
+htmlTitle = "htmlTitle.txt"
 helpEx::IO()
 helpEx = do 
         printBox 2 ["Usage: [ genehtml.hs l -> html for localhost ][ genehtml.hs r -> html for remote ]"]
@@ -297,26 +298,33 @@ helpEx = do
         printBox 2 ["Add Html Title: src/htmlTitle.txt                                                 "]
         exitWith(ExitFailure 1) -- echo $? => 1
 
+notBlankLine x = (len . trim) x > 0
+
+titleToHtmlPath :: [String] -> [String]
+titleToHtmlPath cx = undefined
+
+-- NOTE: Change the path if the code is moved
+rootPath :: IO String
+rootPath = getEnv "g" >>= \x -> return $ x </> "haskellGeneXfidoHtml"
+  
 main = do 
         argList <- getArgs 
         if len argList == 0 
         then helpEx else pp "Take a while... if there are lots of html file:)"
-        titlePath <- getEnv "sp" >>= \sp -> return $ sp </> "GeneXfidoHtml/src" </> "htmlTitle.txt"
-        array <- readFileList titlePath >>= \ls -> return $ filter (\x -> (len . trim) x > 0) ls
+        titlePath <- rootPath >>= \x -> return $ x </> "src" </> htmlTitle
+        pp titlePath
+
+        array <- readFileList titlePath >>= \cx -> return $ filter notBlankLine cx
         mapM_ print argList
 
         -- TODO: Fixed the stupid code here
-        let twohost = case argList of
-                            ("l":_) -> localTuple
-                            ("r":_) -> remoteTuple 
-                            _       -> ("", "")
+        let currPath = case argList of
+                            ("l":_) -> localPath
+                            ("r":_) -> remotePath
+                            _       -> ""
         pp argList
         -- nothing <- getLine 
-        pp "Plz check everything is OK, Enter to Cont."
-        let host = fst twohost
-        let pageHost = snd twohost
-        putStrLn host
-        putStrLn pageHost
+
 
         wwwr <- getWWWDir
         let htmlDir = htmlDir_ wwwr
@@ -329,16 +337,16 @@ main = do
         -- mkdir newDir
         -- let photos = replicate 400 "/image/curve11.svg"
         let photos = replicate (len array) "/image/blockimage.svg"
-        -- indexHtmlFile' <- indexHtmlFile
-        indexHtmlContent <- indexHtmlFile >>= readFileList
-        -- indexHtmlContent <- readFileList indexHtmlFile'
+
+
+
+        -- indexHtmlContent <- getIndexPath >>= readFileList
 
         
         let htmlArr = map(\x -> "index" ++ (removeSpace x) ++ ".html") array -- Generate html file names from array
         let orgArr  = map(\x -> "index" ++ (removeSpace x) ++ ".org") array -- Generate html file names from array
         let fileArray = htmlArr ++ orgArr
-        let pathList  = map(\x -> htmlDir </> x) fileArray -- Generate full path html file names from array: root/html/indexFoo.html
-        let hostList  = map(\x -> pageHost ++ x) fileArray -- ["indexMyPDf.html"] 
+        let hostList  = map(\x -> currPath ++ x) fileArray -- ["indexMyPDf.html"] 
         
         newHtmlFile <- newHtmlPage array
         
@@ -347,7 +355,9 @@ main = do
                                         htmlURL = x, 
                                         title = y, 
                                         imgURL = z}) hostList array photos
-        let menuHtml  = map(\x -> open_li ++ (fst x) ++ href_li ++ (mathfont (snd x)) ++ close_li) zipList -- gene html menu from array
+
+        -- Gene index page link from zipList
+        let indexPageLink  = map(\x -> open_li ++ (fst x) ++ href_li ++ (mathfont (snd x)) ++ close_li) zipList
         --------------------------------------------------------------------------------------------------
         -- TODO add new index page here 
         let tableHtml = zipWith(\x y -> if mod y colNum == 0 then
@@ -358,9 +368,10 @@ main = do
         www <- getEnv "www"
         writeToFile (www </> "indexTest.html") newIndexHtml 
 
-        let newIndexPageContent = map(\x -> if length (removeSpace x) > 0 then x else unlines newIndexHtml) indexHtmlContent
-        writeToFile newIndexFile newIndexPageContent
-        writeToFile "/tmp/myindex.html" newIndexPageContent 
+        -- writeToFile newIndexFile newIndexPageContent
+        let indexPageContent = [indexOpen <> (unlines indexPageLink) <> indexClose]
+        writeToFile newIndexFile indexPageContent
+        -- writeToFile "/tmp/myindex.html" newIndexPageContent 
         --------------------------------------------------------------------------------------------------
         allHtmlDirFiles <- listDirFilter htmlDir "\\.html$" -- get all the html file from html folder, e.g.  xfido/html
         mapM print allHtmlDirFiles
@@ -382,18 +393,16 @@ main = do
                       )
         ---------------------------------------------------------------------------------- 
         -- write to index.html 
-        -- update index.html with new menuHtml
+        -- update index.html with new indexPageLink
         -- new menu insert into space in haskll/text/index.html
         -- 
         --  index.html
         --  <html>
-        --  menuHtml
+        --  indexPageLink
         --  </html>
         -- -------------------------------------------------------------------------------- 
-        -- indexHtmlContent <- readFileLatin1ToList indexHtmlFile 
-        let indexPageContent = map(\x -> if len (removeSpace x) > 0 then x else unlines menuHtml ) indexHtmlContent
-      
-        writeToFile oldIndexFile indexPageContent 
+
+        writeToFile oldIndexFile indexPageContent
         ----------------------------------------------------------------------------
         -- gene NEW html with content in pageFile if name in the array is not found in xfido/html
         pageFile' <- pageFile
