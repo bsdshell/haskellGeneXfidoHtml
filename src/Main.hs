@@ -253,19 +253,32 @@ getWWWDir = do
  let fileArray = htmlArr ++ orgArr
  let pathList  = map(\x -> htmlDir </> x) fileArray -- gene full path html file names from array: root/html/indexFoo.html
 -}
-  
+
+{-|
+  @
+  -----------------------------------newHtmlFile----------------------------------
+  [
+      ( "TestKKKK"
+      , "/Library/WebServer/Documents/xfido/html/indexTestKKKK.html"
+      )
+  ,
+      ( "TestKKKK"
+      , "/Library/WebServer/Documents/xfido/html/indexTestKKKK.org"
+      )
+  ]
+  @
+-}
 newHtmlPage::[String] -> IO [(String, String)]
 newHtmlPage cs = do
-    wwwr <- getWWWDir
-    let pathList  = map(\(a, x) -> (a, (htmlDir_ wwwr) </> x)) fileArray -- gene full path html file names from array: root/html/indexFoo.html
+    www <- getWWWDir
+    let pathList  = map(\(a, x) -> (a, (htmlDir_ www) </> x)) fileArray -- gene full path html file names from array: root/html/indexFoo.html
     filterM((liftM not) . doesFileExist . snd ) pathList -- extract new html file name which is not in xfido/html
   
   where
     htmlArr = map(\x -> (x, "index" ++ (removeSpace x) ++ ".html") )  cs -- gene html file names from array
     orgArr  = map(\x -> (x, "index" ++ (removeSpace x) ++ ".org") ) cs -- gene html file names from array
     fileArray = htmlArr ++ orgArr
-
-  
+   
 -------------------------------------------------------------------------------- 
 -- new index page code here
 
@@ -303,9 +316,35 @@ notBlankLine x = (len . trim) x > 0
 titleToHtmlPath :: [String] -> [String]
 titleToHtmlPath cx = undefined
 
+-- Monday, 20 November 2023 15:51 PST  
 -- NOTE: Change the path if the code is moved
 rootPath :: IO String
 rootPath = getEnv "g" >>= \x -> return $ x </> "haskellGeneXfidoHtml"
+
+{-|
+   @
+   1 Query all *.txt files from $www </> "mytext"
+   2 Extract the TITLE: from fst line in each *.txt 
+   3 return [( mytext/f.txt,  my title )]
+
+   ls <- getEnv "www" >>= fileNameAndTitle
+   ls = [("mytext/myfile.txt","haskell Ix")]
+   @
+   
+-}
+fileNameAndTitle :: FilePath -> IO [(String, String)]
+fileNameAndTitle www = do
+                   let parent = "mytext"
+                   let fp = www </> parent
+                   ls <- lsFile fp
+                   mapM (\x -> do
+                              fstLine <- readFileList (fp </> x) >>= return . head
+                              let title = (trim . last) $ splitStr "TITLE:" fstLine
+                              let namePath = parent </> x
+                              print $ "title " ++ namePath
+                              pre $ namePath ++ " " ++ title
+                              return (namePath, title)
+                       ) ls
   
 main = do 
         argList <- getArgs 
@@ -338,25 +377,45 @@ main = do
         -- let photos = replicate 400 "/image/curve11.svg"
         let photos = replicate (len array) "/image/blockimage.svg"
 
-
+        -- NOTE: newHtmlPage only contains sth if htmlTitle.txt is added new title 
+        newHtmlFile <- newHtmlPage array
 
         -- indexHtmlContent <- getIndexPath >>= readFileList
 
-        
+        let htmlArr = map(\x -> "index" ++ (removeSpace x) ++ ".html") array -- Generate html file names from array
+        let hostList  = map(\x -> currPath ++ x) htmlArr -- ["indexPhoto.html", "indexPhoto.org"]
+        let zipListX   = zip hostList array
+        zipText <- getEnv "www" >>= fileNameAndTitle
+
+        let zipList   = let ft = (take 1 zipListX)
+                            lt = drop 1 zipListX
+                        in ft ++ zipText ++ lt
+
+        logFileG $ map show zipList
+        logFileG $ map show zipText
+
+
+        let indexPageLink  = map(\x -> open_li ++ (fst x) ++ href_li ++ (mathfont (snd x)) ++ close_li) zipList
+
+        {--
         let htmlArr = map(\x -> "index" ++ (removeSpace x) ++ ".html") array -- Generate html file names from array
         let orgArr  = map(\x -> "index" ++ (removeSpace x) ++ ".org") array -- Generate html file names from array
         let fileArray = htmlArr ++ orgArr
-        let hostList  = map(\x -> currPath ++ x) fileArray -- ["indexMyPDf.html"] 
-        
-        newHtmlFile <- newHtmlPage array
-        
-        let zipList   = zip hostList array -- [("/path/indexMyPhoto.com", "My Photo")]
+        let hostList  = map(\x -> currPath ++ x) fileArray -- ["indexPhoto.html", "indexPhoto.org"] 
+
+
+
+        -- zipList => [("html/indexMyPhoto.com", "My Photo")]
+        let zipList   = zip hostList array
         let blockList = zipWith3(\x y z ->RowBlock{
                                         htmlURL = x, 
                                         title = y, 
                                         imgURL = z}) hostList array photos
 
+        logFileG $ map show zipList
+        logFileG hostList
         -- Gene index page link from zipList
+        -- HTML: <li><a style='text-decoration:none;' href='html/indexPhoto.html'</a>My Photo</li>
         let indexPageLink  = map(\x -> open_li ++ (fst x) ++ href_li ++ (mathfont (snd x)) ++ close_li) zipList
         --------------------------------------------------------------------------------------------------
         -- TODO add new index page here 
@@ -366,16 +425,19 @@ main = do
 
         let newIndexHtml = ["<table style='margin-left:auto; margin-right:auto; border:1px black solid;'>"] ++ tableHtml ++ ["</tr></table>"]
         www <- getEnv "www"
-        writeToFile (www </> "indexTest.html") newIndexHtml 
+        writeToFile (www </> "indexTest.html") newIndexHtml
+        --}
 
         -- writeToFile newIndexFile newIndexPageContent
         let indexPageContent = [indexOpen <> (unlines indexPageLink) <> indexClose]
+        -- NOTE: Gene new index.html file
         writeToFile newIndexFile indexPageContent
         -- writeToFile "/tmp/myindex.html" newIndexPageContent 
         --------------------------------------------------------------------------------------------------
         allHtmlDirFiles <- listDirFilter htmlDir "\\.html$" -- get all the html file from html folder, e.g.  xfido/html
         mapM print allHtmlDirFiles
 
+        {--
         -- Read file content from xfido/html
         -- [[f1, f2..], [f3, f4..]]
         let list200 = partList 200 allHtmlDirFiles -- Read 200 files only, if too many files are read, there is issue with memory
@@ -386,11 +448,12 @@ main = do
                         let newDirList = map(\x -> newDir </> x) files 
                         ffList <- mapM(\fn -> readFile fn >>=(\contents -> return(contents))) fullList 
                         let contents = [ [x] | x <- ffList, length x > 0]
-                        zipWithM(\fn list -> writeToFile fn list) newDirList contents 
+                        zipWithM(\fn ct -> writeToFile fn ct) newDirList contents 
                         fl
                         mapM print files
                         fl 
                       )
+        --}
         ---------------------------------------------------------------------------------- 
         -- write to index.html 
         -- update index.html with new indexPageLink
@@ -412,26 +475,33 @@ main = do
 
         -- if .html => write htmlPage content
         -- if .org  => write solarized theme css Dark
+        -- if .txt  =>
         -- orgLight => light theme
+        
         mapM(\(a, x) -> let ext = takeExt x
-                            hname = x
+                            pageName = x
                             title = a
                         in if ext == ".org" then do 
-                             writeToFile hname [orgDark] 
+                             writeToFile pageName [orgDark] 
                            else do 
-                             writeToFile hname ( replaceList htmlPage "replaceTitle00" title )  ) newHtmlFile  -- add new html page to root/html
-
+                             writeToFile pageName ( replaceList htmlPage "replaceTitle00" title )  ) newHtmlFile  -- add new html page to root/html
+        
         pp "New html files: number of html files are added"
         fl
         pp $ show $ len newHtmlFile
         pp "Done"
-        pre newHtmlFile
+
         pre htmlPage
         fl
         pre indexPageContent
         fl
-        pre blockList
+        -- pre blockList
 
         myTextFile <- listDirFilter myText "\\.txt$" -- get all the html file from html folder, e.g.  xfido/html
         mapM print myTextFile
+        fw "newHtmlFile"
+        pre newHtmlFile
+
+        -- fw "newIndexHtml"
+        -- pre newIndexHtml
         ----------------------------------------------------------------------------
